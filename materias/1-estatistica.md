@@ -82,3 +82,112 @@ Tem informações não numéricas relativas a categorias, como gênero, cargo e 
 - Ordinais: contém informações que localizam o dado dentro de uma categoria, por exemplo, escolaridade.
 - Nominais: contém informações que não localizam o dado em uma categoria, como cor dos olhos ou endereço.
 
+---
+## Estatística Descritiva
+Tem como objetivo organizar e analisar um conjunto de dados utilizando
+- Moda
+- Media
+- Mediana
+
+A **Estatística Descritiva** é o jeito organizado de **coletar, organizar e entender dados** para tirar conclusões sobre algo.
+
+Ela segue um “passo a passo” lógico:
+
+1. **Definição do problema**  
+    → O que eu quero descobrir?  
+    Ex: “Os alunos estão satisfeitos com o curso?”
+2. **Delimitação do problema**  
+    → Sobre quem? Onde? Quando?  
+    Ex: “Alunos do 2º semestre, em 2026.”
+3. **Planejamento para obter os dados**  
+    → Como vou coletar as informações?  
+    Ex: Questionário online com 10 perguntas.
+4. **Coleta dos dados**  
+    → Aplicar o questionário e juntar as respostas.
+5. **Apuração dos dados**  
+    → Organizar as respostas (contar, separar, colocar em planilha).
+6. **Apresentação dos dados**  
+    → Mostrar em gráficos, tabelas ou porcentagens.
+7. **Análise dos dados**  
+    → Ver o que os números mostram.  
+    Ex: “70% estão satisfeitos.”
+8. **Interpretação dos dados**  
+    → O que isso significa na prática?  
+    Ex: “A maioria está satisfeita, mas há pontos a melhorar.”
+
+Resumindo em uma frase:  
+Primeiro você define o que quer saber, depois coleta os dados e por fim organiza e entende o que eles significam.
+
+## Estatística Indutiva
+Tem como objetivo inferir, induzir ou estimar o comportamento da população a partir da qual a amostra foi obtida. Ela faz uma generalização a partir dos dados coletados.
+
+---
+
+## Dados brutos
+São dados mostrados da maneira a qual foram obtidos, sem nenhum tratamento ou filtro.
+
+Por exemplo, salários, ou melhor, um conjunto de datas, onde certas datas aparecem como 02/02/2025 e outras 2 de fev, 2025.
+
+A partir do momento que organizamos e tratamos os dados brutos, obtemos algo chamado
+
+## Rol
+Se refere aos dados brutos após serem tratados e organizados, eles podem ser tratados das seguintes formas:
+- Crescente
+- Decrescente
+- Ordem alfabética
+
+---
+## Séries estatísticas
+São dados organizados em função de tempo, localidade ou espécie do dado.
+
+São classificadas em:
+- Séries Históricas – classificadas em função do tempo.
+- Séries Geográficas – classificadas em função da localidade.
+- Séries Específicas – classificadas em função de categorias características dos dados.
+- Séries Conjugadas – é uma combinação das geográficas ou específicas.
+
+---
+## O que é o Ponto Médio?
+
+É o número que fica exatamente no meio do intervalo.
+
+### Fórmula:
+
+Pm = (Li + Ls) ÷ 2
+
+Onde:
+
+- **Li** = limite inferior da classe
+    
+- **Ls** = limite superior da classe
+    
+
+---
+
+## Exemplo prático
+
+Classe: 1,50 – 1,60
+
+Li = 1,50  
+Ls = 1,60
+
+Pm = (1,50 + 1,60) ÷ 2  
+Pm = 3,10 ÷ 2  
+Pm = 1,55
+
+Então, consideramos que todos os valores dessa classe são representados por 1,55.
+
+---
+
+## Por que fazemos isso?
+
+Porque facilita cálculos como:
+
+- média
+    
+- variância
+    
+- desvio padrão
+    
+
+Já que não temos os valores individuais, usamos o ponto médio como uma aproximação.
