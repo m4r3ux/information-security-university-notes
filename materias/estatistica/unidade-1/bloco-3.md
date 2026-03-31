@@ -190,3 +190,5 @@ E conta quantas pessoas estão em cada faixa.
 
 Discreta → valores individuais  
 Contínua → intervalos (classes)
+
+---
