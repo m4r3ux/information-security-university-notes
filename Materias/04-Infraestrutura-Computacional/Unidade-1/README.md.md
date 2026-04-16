@@ -436,3 +436,617 @@ Principais problemas:
 
 ---
 
+# Arquiteturas CISC e RISC
+# 1. Introdução: o que são CISC e RISC
+
+As arquiteturas **CISC (Complex Instruction Set Computing)** e **RISC (Reduced Instruction Set Computing)** são dois modelos de projeto de CPU (Unidade Central de Processamento).
+
+A diferença central entre elas está na filosofia de como o processador deve executar instruções:
+
+- **CISC:** poucas instruções, mas muito complexas (fazem “muita coisa por vez”)
+- **RISC:** muitas instruções simples (fazem “uma coisa por vez”)
+
+Essa diferença impacta diretamente:
+
+- desempenho
+- consumo de energia
+- complexidade do hardware
+- tamanho do código
+- papel do compilador
+
+---
+
+# 2. Arquitetura CISC (Complex Instruction Set Computing)
+
+## 2.1 Conceito principal
+
+A arquitetura CISC possui um **conjunto de instruções extenso e complexo**, onde cada instrução pode realizar várias operações ao mesmo tempo.
+
+Exemplo conceitual:  
+Uma única instrução pode:
+
+- acessar memória
+- fazer cálculo
+- armazenar resultado
+
+---
+
+## 2.2 Densidade de código
+
+Um ponto muito importante:
+
+**CISC prioriza densidade de código.**
+
+Isso significa:
+
+- menos linhas de código em linguagem de máquina
+- programas menores em tamanho
+
+Isso acontece porque uma instrução “faz mais coisas”.
+
+---
+
+## 2.3 Compatibilidade retroativa
+
+CISC geralmente mantém compatibilidade com versões antigas.
+
+Isso significa:
+
+- novos processadores ainda executam instruções antigas
+- evita reescrever software legado
+
+Isso é extremamente importante no mundo real, especialmente na linha x86.
+
+---
+
+## 2.4 Vantagens da CISC
+
+- Alta densidade de código
+- Compatibilidade retroativa
+- Instruções poderosas (mais complexas)
+
+---
+
+## 2.5 Desvantagens da CISC
+
+- Hardware mais complexo (difícil de projetar)
+- Ciclos de clock variáveis (instruções demoram tempos diferentes)
+- Muitas instruções raramente usadas (ineficiência interna)
+
+---
+
+## 2.6 Exemplos de CISC
+
+### x86 (Intel/AMD)
+
+- Arquitetura dominante em PCs
+- Presente em desktops e notebooks
+- Altamente compatível com software antigo
+
+### Motorola 68000
+
+- Muito usado em computadores clássicos (ex: Macintosh antigo)
+- Também presente em sistemas embarcados e workstations
+
+---
+
+# 3. Arquitetura RISC (Reduced Instruction Set Computing)
+
+## 3.1 Conceito principal
+
+A arquitetura RISC usa um **conjunto reduzido de instruções simples**, onde cada instrução faz apenas uma operação básica.
+
+Exemplo:
+
+- carregar dado da memória
+- somar dois valores
+- armazenar resultado
+
+Cada instrução faz uma coisa só.
+
+---
+
+## 3.2 Execução rápida
+
+Como as instruções são simples:
+
+- execução mais rápida
+- ciclos de clock menores
+- pipeline mais eficiente
+
+---
+
+## 3.3 Paralelismo
+
+RISC facilita muito:
+
+- execução paralela de instruções
+- pipelines mais organizados
+- maior throughput (mais instruções por segundo)
+
+---
+
+## 3.4 Vantagens da RISC
+
+- Execução rápida e uniforme
+- Hardware mais simples
+- Menor consumo de energia
+
+---
+
+## 3.5 Desvantagens da RISC
+
+- Menor densidade de código (código maior)
+- Maior dependência do compilador
+- Menor compatibilidade direta com instruções antigas
+
+---
+
+## 3.6 Exemplos de RISC
+
+### ARM
+
+- Dominante em smartphones e tablets
+- Altamente eficiente energeticamente
+- Crescendo também em servidores
+
+### MIPS
+
+- Muito usado em sistemas embarcados
+- Roteadores e consoles
+- Simplicidade de design
+
+---
+
+# 4. Comparação direta CISC vs RISC (essencial para prova)
+
+|Característica|CISC|RISC|
+|---|---|---|
+|Instruções|Complexas e numerosas|Simples e poucas|
+|Código|Pequeno (alta densidade)|Maior|
+|Execução|Variável|Rápida e uniforme|
+|Hardware|Complexo|Simples|
+|Energia|Maior consumo|Menor consumo|
+
+---
+
+# 5. Papel do compilador (muito importante em RISC)
+
+Em RISC, o hardware é simples, então o **compilador faz mais trabalho**.
+
+Ele precisa:
+
+- dividir operações complexas em várias instruções simples
+- otimizar sequências de instruções
+- organizar execução (instruction scheduling)
+- eliminar código desnecessário (dead code elimination)
+- expandir funções inline
+
+👉 Ou seja:
+
+> Em RISC, a inteligência está mais no software (compilador), não no hardware.
+
+---
+
+# 6. Arquiteturas híbridas (mundo real moderno)
+
+Hoje não existe CISC ou RISC “puro” na prática.
+
+Exemplo:
+
+### x86-64
+
+- Mantém compatibilidade CISC
+- Internamente usa técnicas RISC-like
+
+👉 Isso significa:
+
+- o processador “recebe CISC”
+- mas “executa como RISC internamente”
+
+---
+
+# 7. Consumo de energia
+
+Esse ponto é MUITO cobrado:
+
+- RISC → menor consumo → ideal para mobile
+- CISC → maior consumo → tradicional em PCs
+
+Técnicas usadas:
+
+- clock gating (desliga partes do clock)
+- voltage scaling (reduz tensão elétrica)
+
+---
+
+# 8. Futuro das arquiteturas
+
+A tendência atual não é escolher um lado, mas evoluir para:
+
+- processamento paralelo (multi-core)
+- IA embarcada (NPUs)
+- arquiteturas neuromórficas (inspiradas no cérebro)
+- computação quântica (novo paradigma)
+
+---
+
+# 9. Resumo mental (para prova)
+
+Se quiser decorar rápido:
+
+- **CISC = instruções complexas, código pequeno, hardware pesado**
+- **RISC = instruções simples, código maior, hardware leve**
+
+---
+
+# Unidade Central de Processamento
+# 1. O que é a CPU (Unidade Central de Processamento)
+
+A **CPU (Central Processing Unit)** é o principal componente de processamento de um computador.
+
+Ela é responsável por:
+
+- Interpretar instruções de programas
+- Executar operações lógicas e matemáticas
+- Controlar o fluxo de dados do sistema
+
+👉 Em termos simples:
+
+> A CPU é o “cérebro” do computador.
+
+---
+
+# 2. Unidades funcionais da CPU
+
+A CPU é dividida em três partes principais:
+
+---
+
+## 2.1 Unidade de Controle (UC)
+
+A **UC (Unidade de Controle)** é responsável por coordenar tudo.
+
+Funções:
+
+- Busca instruções na memória
+- Decodifica instruções
+- Controla o fluxo de dados entre CPU, memória e ULA
+- Garante execução na ordem correta
+
+👉 Analogamente:
+
+> É o “maestro da orquestra”
+
+---
+
+## 2.2 Unidade Lógica e Aritmética (ULA)
+
+A **ULA (ALU – Arithmetic Logic Unit)** executa operações.
+
+Ela realiza:
+
+### Operações aritméticas:
+
+- soma
+- subtração
+- multiplicação
+- divisão
+
+### Operações lógicas:
+
+- AND
+- OR
+- NOT
+
+👉 Resumo:
+
+> A ULA é onde o processamento “de fato acontece”.
+
+---
+
+## 2.3 Registradores
+
+Os **registradores** são pequenas memórias extremamente rápidas dentro da CPU.
+
+Função:
+
+- armazenar dados temporários
+- guardar endereços de memória
+- manter valores em uso imediato
+
+👉 Característica principal:
+
+> São a memória mais rápida do computador.
+
+---
+
+# 3. Ciclo da CPU (Fetch-Decode-Execute-Store)
+
+Esse ciclo é fundamental e MUITO cobrado em provas.
+
+---
+
+## 3.1 Fetch (Busca)
+
+PC→Mem_Instru\xE7\xE3oPC \rightarrow Mem\_Instru\xE7\xE3oPC→Mem_Instru\xE7\xE3o
+
+- A CPU busca a próxima instrução na memória
+- Usa o **PC (Program Counter)** para saber onde buscar
+
+---
+
+## 3.2 Decode (Decodificação)
+
+- A UC interpreta a instrução
+- Identifica:
+    - operação a ser feita
+    - operandos (dados envolvidos)
+
+---
+
+## 3.3 Execute (Execução)
+
+- A ULA executa a operação
+- Pode envolver cálculos ou operações lógicas
+
+---
+
+## 3.4 Store (Armazenamento)
+
+- Resultado é armazenado em:
+    - registrador
+    - ou memória RAM
+
+---
+
+👉 Resumo do ciclo:
+
+> Buscar → Decodificar → Executar → Armazenar
+
+---
+
+# 4. Clock da CPU (Clock Speed)
+
+O **clock speed** é a frequência de operação da CPU.
+
+f=1Tf = \frac{1}{T}f=T1​
+
+TTT
+
+Tf = 0.5 Hz
+
+Onde:
+
+- f = frequência (clock)
+- T = tempo de um ciclo
+
+---
+
+## O que isso significa?
+
+- Medido em **Hertz (Hz)**
+- Indica quantos ciclos por segundo a CPU executa
+
+Exemplo:
+
+- 3 GHz = 3 bilhões de ciclos por segundo
+
+---
+
+## Importante (cai em prova):
+
+Clock alto NÃO significa sempre melhor desempenho.
+
+Porque desempenho também depende de:
+
+- arquitetura (CISC/RISC)
+- número de núcleos
+- cache
+- eficiência do software
+
+---
+
+# 5. Memória Cache
+
+A cache é uma memória intermediária entre CPU e RAM.
+
+Ela existe porque:
+
+> RAM é lenta comparada à CPU
+
+---
+
+## 5.1 Níveis de cache
+
+### L1 Cache
+
+- mais rápida
+- menor capacidade
+- dentro do núcleo da CPU
+
+### L2 Cache
+
+- intermediária
+- mais espaço que L1
+
+### L3 Cache
+
+- maior cache
+- mais lenta que L1 e L2
+- compartilhada entre núcleos
+
+---
+
+## Ideia central:
+
+> Quanto mais perto da CPU, mais rápida e menor a memória.
+
+---
+
+# 6. Multiprocessamento e Multicore
+
+## Multiprocessamento
+
+- vários processadores físicos
+
+## Multicore
+
+- um processador com vários núcleos
+
+---
+
+## Resultado:
+
+- execução paralela
+- maior desempenho
+- melhor multitarefa
+
+---
+
+👉 Diferença importante de prova:
+
+- Multiprocessamento = vários CPUs físicos
+- Multicore = um CPU com vários núcleos
+
+---
+
+# 7. CPU e Memória RAM
+
+A CPU depende da RAM para funcionar.
+
+Fluxo:
+
+- CPU busca instruções na RAM
+- RAM fornece dados e programas
+
+---
+
+## Problema:
+
+- RAM é mais lenta que CPU
+
+## Solução:
+
+- cache (L1, L2, L3)
+
+---
+
+👉 Conclusão:
+
+> Desempenho da CPU depende muito da RAM.
+
+---
+
+# 8. Sistema Operacional e CPU
+
+O **SO (Sistema Operacional)** gerencia a CPU.
+
+---
+
+## 8.1 Agendamento (Scheduling)
+
+- distribui tempo de CPU entre processos
+- garante uso justo
+
+---
+
+## 8.2 Gerenciamento de memória
+
+- controla uso da RAM
+- protege processos entre si
+
+---
+
+## 8.3 Entrada e Saída (I/O)
+
+- coordena dispositivos (teclado, mouse, disco)
+- gerencia comunicação com hardware
+
+---
+
+👉 Ideia principal:
+
+> O SO é o “gerente da CPU”.
+
+---
+
+# 9. Virtualização
+
+Virtualização permite rodar vários sistemas operacionais em uma única máquina.
+
+---
+
+## Elementos:
+
+### Hypervisor
+
+- software que cria e gerencia VMs
+
+### Máquina Virtual (VM)
+
+- “computador simulado”
+
+### Extensões de hardware:
+
+- Intel VT-x
+- AMD-V
+
+---
+
+👉 Importante:
+
+> A CPU precisa suportar virtualização por hardware para melhor desempenho.
+
+---
+
+# 10. Monitoramento de CPU
+
+Ferramentas:
+
+- Gerenciador de Tarefas (Windows)
+- Monitor de Atividade (macOS)
+
+---
+
+O que elas mostram:
+
+- uso da CPU (%)
+- temperatura
+- processos ativos
+
+---
+
+## Para que serve?
+
+- identificar gargalos
+- otimizar desempenho
+- detectar sobrecarga
+
+---
+
+# 11. Resumo final (para prova)
+
+### CPU é composta por:
+
+- UC → controla
+- ULA → processa
+- Registradores → armazenam dados rápidos
+
+### Ciclo:
+
+Fetch → Decode → Execute → Store
+
+### Performance depende de:
+
+- clock
+- cache
+- núcleos
+- arquitetura
+- RAM
+
+### Conceitos importantes:
+
+- multicore ≠ multiprocessamento
+- cache L1 > L2 > L3 (velocidade inversa ao tamanho)
+- SO gerencia CPU
