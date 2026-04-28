@@ -549,3 +549,649 @@ Aumentar o clock além do padrão do fabricante.
 - portas lógicas → executam operações
 - CPU → organiza essas operações
 - clock → diz **quando** cada operação acontece
+
+---
+
+# 1. O que é a Arquitetura de Von Neumann
+
+A **Arquitetura de Von Neumann** foi proposta por John von Neumann em 1945.
+
+Ela define **como um computador é organizado internamente**.
+
+---
+
+## Ideia principal (muito importante)
+
+> Dados e programas ficam na mesma memória
+
+Isso é chamado de:
+
+### **conceito de programa armazenado**
+
+Antes disso:
+
+- máquinas eram “fixas”
+- não eram facilmente programáveis
+
+Depois disso:
+
+- você pode mudar o software sem mudar o hardware
+
+---
+
+# 2. Os 4 componentes principais
+
+A arquitetura é formada por quatro blocos fundamentais:
+
+---
+
+## 2.1 Memória Principal
+
+Função:
+
+- armazenar **dados e instruções**
+
+Características importantes:
+
+- armazenamento binário (0 e 1)
+- organizada em **endereços**
+- acesso aleatório (RAM)
+
+---
+
+## Ideia importante para prova
+
+> A mesma memória guarda dados E programas
+
+---
+
+## 2.2 CPU (Processador)
+
+A CPU tem duas partes principais:
+
+### Unidade de Controle (UC)
+
+- controla tudo
+- busca e decodifica instruções
+
+### Unidade Lógica e Aritmética (ULA)
+
+- faz cálculos
+- executa operações lógicas
+
+---
+
+## 2.3 Entrada e Saída (I/O)
+
+Permite comunicação com o mundo externo:
+
+- teclado
+- mouse
+- monitor
+- impressora
+
+---
+
+## 2.4 Barramentos (interconexão)
+
+São os “caminhos” por onde os dados trafegam.
+
+Tipos:
+
+- barramento de dados
+- barramento de endereços
+- barramento de controle
+
+---
+
+# 3. Como tudo funciona junto
+
+O funcionamento segue um ciclo:
+
+---
+
+## Ciclo de instrução (importantíssimo)
+
+1. Fetch (buscar)
+2. Decode (decodificar)
+3. Execute (executar)
+4. Store (armazenar)
+
+---
+
+## Explicando de forma simples
+
+- CPU busca instrução na memória
+- entende o que fazer
+- executa
+- guarda o resultado
+
+E repete isso continuamente.
+
+---
+
+# 4. Memória na arquitetura de Von Neumann
+
+## Estrutura unificada
+
+- uma única memória
+- armazena tudo
+
+---
+
+## Células de memória
+
+- organizadas por endereços
+- cada célula guarda bits
+
+---
+
+## Hierarquia moderna
+
+Apesar do modelo original ser simples, hoje temos:
+
+- registradores (mais rápidos)
+- cache
+- RAM
+- armazenamento (HD/SSD)
+
+---
+
+# 5. Gargalo de Von Neumann (muito importante)
+
+## O problema
+
+A CPU usa o **mesmo barramento** para:
+
+- buscar dados
+- buscar instruções
+
+---
+
+## Consequência
+
+> A CPU precisa esperar a memória
+
+Isso limita o desempenho.
+
+---
+
+## Nome disso
+
+**Gargalo de Von Neumann**
+
+---
+
+## Impacto
+
+- CPU fica ociosa
+- desempenho reduz
+
+---
+
+## Soluções modernas
+
+- memória cache
+- pipeline
+- múltiplos núcleos
+- barramentos mais rápidos
+
+---
+
+# 6. Comparação com Arquitetura Harvard
+
+Aqui é um dos pontos mais cobrados.
+
+---
+
+## Von Neumann
+
+- memória única
+- barramento único
+- mais simples
+- mais flexível
+- tem gargalo
+
+---
+
+## Harvard
+
+- memória separada (dados e instruções)
+- barramentos separados
+- mais rápido
+- mais complexo
+
+---
+
+## Ideia-chave
+
+> Harvard permite acessar dados e instruções ao mesmo tempo
+
+---
+
+# 7. Onde cada arquitetura é usada
+
+## Von Neumann
+
+- computadores pessoais
+- notebooks
+- servidores
+
+---
+
+## Harvard
+
+- microcontroladores
+- sistemas embarcados
+- DSPs (processamento de sinal)
+
+---
+
+## Mundo real (importante)
+
+Hoje usamos **arquiteturas híbridas**:
+
+- CPU estilo Von Neumann
+- cache estilo Harvard
+
+---
+
+# 8. Importância histórica
+
+A arquitetura de Von Neumann:
+
+- tornou computadores programáveis
+- permitiu criação de software
+- transformou máquinas em sistemas universais
+
+---
+
+## Conceito mais importante de todos
+
+> Programa armazenado = base da computação moderna
+
+---
+
+# 9. Conexão com o que você já estudou
+
+- Portas lógicas → formam circuitos
+- CPU → executa instruções
+- Clock → sincroniza tudo
+- Von Neumann → organiza todo o sistema
+
+---
+
+# 10. Resumo para prova
+
+### Componentes:
+
+- Memória
+- CPU (UC + ULA)
+- Entrada/Saída
+- Barramentos
+
+---
+
+### Conceitos-chave:
+
+- programa armazenado
+- memória única
+- ciclo de instrução
+- gargalo de Von Neumann
+
+---
+
+### Diferença principal:
+
+- Von Neumann → memória única
+- Harvard → memória separada 
+
+---
+
+# 1. O que é um Sistema Operacional
+
+Um **Sistema Operacional (SO)** é o software responsável por:
+
+> gerenciar os recursos do computador e permitir que programas sejam executados
+
+---
+
+## Ideia mais importante (para prova)
+
+> O SO é um **gerenciador de recursos**
+
+---
+
+## Quais recursos?
+
+- CPU
+- memória (RAM)
+- armazenamento (HD/SSD)
+- dispositivos de entrada/saída
+
+---
+
+## Outra forma de entender
+
+O SO funciona como um “intermediário” entre:
+
+- hardware (parte física)
+- software (programas)
+
+---
+
+# 2. O papel do SO como alocador de recursos
+
+O computador tem recursos limitados, mas vários programas querem usar ao mesmo tempo.
+
+O SO precisa:
+
+- decidir quem usa o quê
+- quando usar
+- por quanto tempo
+
+---
+
+## Exemplo simples
+
+Você tem:
+
+- 1 CPU
+- vários programas abertos
+
+O SO decide:
+
+- qual programa vai usar a CPU agora
+- qual vai esperar
+
+---
+
+# 3. Recursos gerenciados pelo SO
+
+## 3.1 Tempo de CPU
+
+- controla qual processo executa
+- define por quanto tempo
+
+Isso é chamado de:
+
+> **escalonamento (scheduling)**
+
+---
+
+## 3.2 Memória
+
+- aloca memória para programas
+- libera quando não é mais usada
+
+---
+
+## 3.3 Armazenamento
+
+- organiza arquivos no disco
+- controla espaço livre
+
+---
+
+## 3.4 Dispositivos de I/O
+
+- teclado
+- mouse
+- impressora
+- disco
+
+O SO controla o acesso a todos eles.
+
+---
+
+# 4. O problema da concorrência
+
+## Situação
+
+Vários programas querem usar o mesmo recurso ao mesmo tempo.
+
+---
+
+## Problema
+
+- conflitos
+- travamentos
+- inconsistências
+
+---
+
+## Papel do SO
+
+> resolver esses conflitos de forma transparente
+
+---
+
+## Exemplo
+
+Dois programas querem imprimir ao mesmo tempo:
+
+- o SO organiza a fila de impressão
+
+---
+
+# 5. Critérios de alocação (importante para prova)
+
+O SO tenta equilibrar:
+
+---
+
+## Eficiência
+
+- usar bem os recursos
+
+## Justiça
+
+- distribuir recursos de forma equilibrada
+
+## Previsibilidade
+
+- comportamento consistente
+
+## Desempenho
+
+- resposta rápida e bom rendimento
+
+---
+
+# 6. Tipos de sistemas operacionais
+
+## Desktop
+
+- uso pessoal
+- multitarefa
+- interface gráfica
+
+---
+
+## Servidor
+
+- alta estabilidade
+- muitos usuários simultâneos
+
+---
+
+## Móvel
+
+- baixo consumo de energia
+- otimizado para toque
+
+---
+
+# 7. Gerenciamento de processos
+
+## O que é um processo?
+
+> Um programa em execução
+
+---
+
+## Etapas principais
+
+### 1. Criação
+
+- processo é iniciado
+
+### 2. Escalonamento
+
+- SO decide quem usa a CPU
+
+### 3. Sincronização
+
+- coordena processos que compartilham recursos
+
+### 4. Finalização
+
+- processo termina
+- recursos são liberados
+
+---
+
+# 8. Gerenciamento de memória
+
+## 8.1 Memória virtual
+
+- usa o disco como extensão da RAM
+- permite rodar mais programas
+
+---
+
+## 8.2 Paginação
+
+- divide memória em blocos fixos (páginas)
+
+---
+
+## 8.3 Segmentação
+
+- divide memória de forma lógica (programa)
+
+---
+
+## 8.4 Memória física
+
+- RAM real disponível
+
+---
+
+# 9. Sistema de arquivos
+
+Responsável por organizar dados no disco.
+
+---
+
+## Funções
+
+- nomear arquivos
+- organizar diretórios
+- controlar permissões
+- gerenciar espaço
+
+---
+
+## Importante
+
+> O usuário não acessa o disco diretamente — usa o sistema de arquivos
+
+---
+
+# 10. Gerenciamento de I/O
+
+O SO controla dispositivos usando:
+
+## Drivers
+
+- programas que fazem comunicação com hardware
+
+---
+
+## Ideia-chave
+
+> O driver traduz comandos do sistema para o dispositivo
+
+---
+
+# 11. Segurança e proteção
+
+## Modos de operação
+
+### Modo usuário
+
+- acesso limitado
+- roda aplicações
+
+### Modo kernel
+
+- acesso total ao sistema
+- executa funções críticas
+
+---
+
+## Mecanismos de proteção
+
+- isolamento de memória
+- controle de acesso
+- permissões
+
+---
+
+## Objetivo
+
+> impedir que um programa afete outro ou o sistema
+
+---
+
+# 12. Desafios atuais
+
+## Multicore
+
+- usar vários núcleos ao mesmo tempo
+
+## Virtualização
+
+- rodar vários sistemas no mesmo hardware
+
+## Eficiência energética
+
+- reduzir consumo
+
+## Segurança
+
+- proteger contra ataques modernos
+
+---
+
+# 13. Resumo para prova
+
+### Sistema Operacional é:
+
+- gerenciador de recursos
+
+---
+
+### Gerencia:
+
+- CPU
+- memória
+- arquivos
+- dispositivos
+
+---
+
+### Conceitos importantes:
+
+- processo
+- escalonamento
+- memória virtual
+- drivers
+- modo kernel vs usuário
+
+---
+
+### Função principal:
+
+> garantir uso eficiente, justo e seguro do sistema
