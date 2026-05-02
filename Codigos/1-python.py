@@ -1,4 +1,8 @@
-for i in range(5):
-    if i == 2:
-        continue
-    print(i)
+senha = ""
+
+while senha != "123":
+   senha = input("Digite a senha: ")
+   continue
+   print("Senha incorreta")
+
+print("Senha correta")
