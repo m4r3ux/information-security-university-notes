@@ -1006,3 +1006,275 @@ Agora juntando tudo:
 - Copy-on-Write no fork()
 - CFS como escalonador
 - namespaces para isolamento
+
+---
+
+# 1. Como o kernel é invocado (ideia central)
+
+O **kernel** é o núcleo do sistema operacional.  
+Ele não roda “sozinho o tempo todo” fazendo coisas aleatórias — ele é **ativado (invocado)** quando algo precisa dele.
+
+Existem **três formas principais** disso acontecer:
+
+---
+
+## 1.1 Chamadas de sistema (system calls)
+
+São a forma **controlada e intencional** de acessar o kernel.
+
+Quando um programa quer algo que só o sistema operacional pode fazer, ele chama o kernel.
+
+Exemplos:
+
+- `open()` → abrir arquivo
+- `read()` → ler dados
+- `write()` → escrever
+- `fork()` → criar processo
+
+### Como pensar nisso:
+
+> Programa → “Kernel, preciso de algo que só você pode fazer”
+
+O kernel entra em ação, executa com segurança e devolve o resultado.
+
+---
+
+## 1.2 Exceções
+
+Aqui não é o programa pedindo — é um **problema acontecendo durante a execução**.
+
+Exemplos:
+
+- Acesso inválido à memória
+- Divisão por zero
+- Instrução ilegal
+
+### Interpretação:
+
+> Algo deu errado → o sistema precisa intervir
+
+O kernel entra automaticamente para:
+
+- tratar o erro
+- interromper o programa
+- ou tomar alguma ação de segurança
+
+---
+
+## 1.3 Interrupções de hardware
+
+São sinais vindos **do mundo externo (hardware)**.
+
+Exemplos:
+
+- Chegou dado da rede
+- Tecla pressionada
+- Disco terminou leitura
+
+### Interpretação:
+
+> Hardware → “Kernel, aconteceu algo importante!”
+
+O kernel precisa reagir imediatamente.
+
+---
+
+# 2. Ligando isso com concorrência
+
+Agora entra o ponto importante:
+
+- O kernel lida com **muitos eventos ao mesmo tempo**
+- Vários processos + interrupções + chamadas
+
+Isso gera um problema central:
+
+> **acesso simultâneo a dados compartilhados**
+
+E é aí que surgem as **seções críticas**.
+
+---
+
+# 3. O problema das seções críticas
+
+## O que é uma seção crítica?
+
+É um trecho de código que acessa algo compartilhado:
+
+- memória
+- estrutura de dados
+- recurso do sistema
+
+E que **não pode ser acessado por mais de um ao mesmo tempo**
+
+---
+
+## Por quê?
+
+Porque senão ocorre:
+
+### Condição de corrida (race condition)
+
+Situação em que:
+
+> O resultado depende da ordem de execução (que é imprevisível)
+
+---
+
+## Exemplo simples
+
+Imagine duas tarefas:
+
+- ambas incrementam uma variável
+
+Sem controle:
+
+1. Ambas leem valor = 10
+2. Ambas somam +1
+3. Ambas salvam 11
+
+Resultado final = 11 (errado, deveria ser 12)
+
+---
+
+## Consequências reais
+
+- Dados corrompidos
+- Comportamento aleatório
+- Travamentos
+- Falhas de segurança
+
+---
+
+# 4. Como o kernel protege essas seções
+
+## 4.1 Antes da seção crítica
+
+O sistema precisa:
+
+> “garantir acesso exclusivo”
+
+---
+
+## 4.2 Durante
+
+- Apenas um processo entra
+- Outros ficam bloqueados
+
+---
+
+## 4.3 Depois
+
+- Libera acesso
+- Outros podem entrar
+
+---
+
+# 5. Mecanismos de sincronização
+
+## 5.1 Desabilitar interrupções
+
+### Ideia:
+
+- O kernel impede qualquer interrupção durante a operação
+
+### Funciona bem quando:
+
+- CPU única
+
+### Problema:
+
+- Em múltiplos núcleos → não resolve
+- Pode deixar sistema “travado” momentaneamente
+
+---
+
+## 5.2 Mutex (Mutual Exclusion)
+
+Esse é o mais importante para entender.
+
+### Funcionamento:
+
+1. Processo pede o mutex
+2. Se livre → entra
+3. Se ocupado → espera
+4. Ao sair → libera
+
+### Conceito-chave:
+
+> “Só um entra por vez”
+
+---
+
+## Diferença importante:
+
+- Mutex tem **dono (thread específico)**
+- Evita problemas como uso indevido
+
+---
+
+# 6. Problemas clássicos (para entender melhor)
+
+Esses problemas ajudam a visualizar situações reais:
+
+---
+
+## Produtor-Consumidor
+
+- Um produz dados
+- Outro consome
+
+Problema:
+
+- Consumir antes de produzir
+- Produzir demais
+
+---
+
+## Leitores-Escritores
+
+- Vários podem ler
+- Só um pode escrever
+
+Desafio:
+
+- Equilibrar acesso
+
+---
+
+## Filósofos Jantando
+
+- Compartilham recursos
+- Podem travar (deadlock)
+
+---
+
+# 7. Desafios reais no kernel
+
+Agora entra o nível mais avançado:
+
+---
+
+## 7.1 Deadlock
+
+- Dois processos esperando um ao outro
+- Ninguém avança
+
+---
+
+## 7.2 Starvation
+
+- Um processo nunca consegue recurso
+- Sempre “passado para trás”
+
+---
+
+## 7.3 Inversão de prioridade
+
+- Processo importante bloqueado por um menos importante
+
+---
+
+## 7.4 Overhead de sincronização
+
+- Sincronizar custa desempenho
+- Kernel precisa equilibrar segurança vs velocidade
