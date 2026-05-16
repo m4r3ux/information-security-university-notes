@@ -1,15 +1,10 @@
+import json
 
-def verifica_impar_par(valor):
-    
-    status = int(valor) % 2
+dados = {
+    "nome": "Carlos",
+    "idade": 40
+}
 
-    if status == 0:
-        return "par"
-    else:
-        return "impar"
-    
-valor_usuario = input("Digite o número que deseja saber se é impar ou par: \n")
+json_texto = json.dumps(dados)
 
-status = verifica_impar_par(valor_usuario)
-
-print(f"{valor_usuario} é {status}")
+print(json_texto)
