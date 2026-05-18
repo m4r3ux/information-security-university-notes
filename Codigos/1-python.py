@@ -1,10 +1,6 @@
-import json
+import os
 
-dados = {
-    "nome": "Carlos",
-    "idade": 40
-}
-
-json_texto = json.dumps(dados)
-
-print(json_texto)
+if os.path.exists("dados.txt"):
+    print("Arquivo existe")
+else:
+    print("Arquivo não encontrado")
